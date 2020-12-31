@@ -31,5 +31,23 @@ Function ShowSavedPicturesInExplorer {
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{E25B5812-BE88-4bd9-94B0-29233477B6C3}\PropertyBag" -Name "ThisPCPolicy" -Type String -Value "Show"
 }
 
+# Small Desktop Icons
+Function SmallDesktopIcons {
+	Write-Output "Setting small desktop icons..."
+	Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 24
+}
+
+# Medium Desktop Icons
+Function MediumDesktopIcons {
+	Write-Output "Setting medium desktop icons..."
+	Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 32
+}
+
+# Large Desktop Icons
+Function LargeDesktopIcons {
+	Write-Output "Setting large desktop icons..."
+	Set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 36
+}
+
 # Export functions
 Export-ModuleMember -Function *

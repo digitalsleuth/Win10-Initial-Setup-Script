@@ -201,6 +201,7 @@ Hide3DObjectsFromThisPC         # Show3DObjectsInThisPC
 Hide3DObjectsFromExplorer       # Show3DObjectsInExplorer
 HideCameraRollFromExplorer      # ShowCameraRollInExplorer
 HideSavedPicturesFromExplorer   # ShowSavedPicturesInExplorer
+SmallDesktopIcons               # MediumDesktopIcons             #LargeDesktopIcons
 # HideNetworkFromExplorer       # ShowNetworkInExplorer
 # HideIncludeInLibraryMenu      # ShowIncludeInLibraryMenu
 # HideGiveAccessToMenu          # ShowGiveAccessToMenu
