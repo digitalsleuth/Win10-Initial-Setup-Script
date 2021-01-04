@@ -514,17 +514,22 @@ Function EnableDiagTrack {
 
 # Stop and disable Device Management Wireless Application Protocol (WAP) Push Service
 # Note: This service is needed for Microsoft Intune interoperability
+# Warning: If this service is disabled, sysprep will hang at "Getting Ready" on first boot
+#   Add the line below to FirstBootCommand in answer file #
+#   reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "disabledmwappushservice" /t REG_SZ /d "sc config dmwappushservice start= disabled"
 Function DisableWAPPush {
 	Write-Output "Stopping and disabling Device Management WAP Push Service..."
-	Stop-Service "dmwappushservice" -WarningAction SilentlyContinue
-	Set-Service "dmwappushservice" -StartupType Disabled
+        Get-Service -Name "dmwappushservice" -ErrorAction SilentlyContinue |
+        Stop-Service -WarningAction SilentlyContinue |
+        Set-Service -StartupType Disabled
 }
 
 # Enable and start Device Management Wireless Application Protocol (WAP) Push Service
 Function EnableWAPPush {
 	Write-Output "Enabling and starting Device Management WAP Push Service..."
-	Set-Service "dmwappushservice" -StartupType Automatic
-	Start-Service "dmwappushservice" -WarningAction SilentlyContinue
+        Get-Service -Name "dmwappushservice" -ErrorAction SilentlyContinue |
+        Set-Service -StartupType Automatic |
+        Start-Service -WarningAction SilentlyContinue	
 	Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\dmwappushservice" -Name "DelayedAutoStart" -Type DWord -Value 1
 }
 
@@ -1471,20 +1476,15 @@ Function EnableUpdateAutoDownload {
 }
 
 # Disable automatic restart after Windows Update installation
-# The tweak is slightly experimental, as it registers a dummy debugger for MusNotification.exe
-# which blocks the restart prompt executable from running, thus never schedulling the restart
 Function DisableUpdateRestart {
 	Write-Output "Disabling Windows Update automatic restart..."
-	If (!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MusNotification.exe")) {
-		New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MusNotification.exe" -Force | Out-Null
-	}
-	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MusNotification.exe" -Name "Debugger" -Type String -Value "cmd.exe"
+	Set-ItemProperty -Path "HKLM:\Software\Microsoft\WindowsUpdate\UX\Settings" -Name "UxOption" -Type DWord -Value 1
 }
 
 # Enable automatic restart after Windows Update installation
 Function EnableUpdateRestart {
 	Write-Output "Enabling Windows Update automatic restart..."
-	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MusNotification.exe" -Name "Debugger" -ErrorAction SilentlyContinue
+	Set-ItemProperty -Path "HKLM:\Software\Microsoft\WindowsUpdate\UX\Settings" -Name "UxOption" -Type DWord -Value 0
 }
 
 # Disable nightly wake-up for Automatic Maintenance and Windows Updates

@@ -29,9 +29,13 @@ DisableBiometrics               # EnableBiometrics
 DisableErrorReporting           # EnableErrorReporting
 # SetP2PUpdateLocal             # SetP2PUpdateInternet          # SetP2PUpdateDisable
 DisableDiagTrack                # EnableDiagTrack
-DisableWAPPush                  # EnableWAPPush
+# DisableWAPPush                  # EnableWAPPush               # Disable in post script (see DisableWAPPush)
 # EnableClearRecentFiles        # DisableClearRecentFiles
 # DisableRecentFiles            # EnableRecentFiles
+DisableDataCollection           # EnableDataCollection
+DisableLocation                 # EnableLocation
+DisableSpeech                   # EnableSpeech
+DisablePrivacyExperience        # EnablePrivacyExperience
 
 ### UWP Privacy Tweaks ###
 DisableUWPBackgroundApps        # EnableUWPBackgroundApps
@@ -50,6 +54,7 @@ DisableUWPBackgroundApps        # EnableUWPBackgroundApps
 # DisableUWPDiagInfo            # EnableUWPDiagInfo
 # DisableUWPFileSystem          # EnableUWPFileSystem
 # DisableUWPSwapFile            # EnableUWPSwapFile
+DisableTIPC                     # EnableTIPC
 
 ### Security Tweaks ###
 SetUACLow                       # SetUACHigh
@@ -118,6 +123,8 @@ EnableNTFSLongPaths             # DisableNTFSLongPaths
 # DisableSleepTimeout           # EnableSleepTimeout
 # DisableFastStartup            # EnableFastStartup
 # DisableAutoRebootOnCrash      # EnableAutoRebootOnCrash
+DisableXboxServices             # EnableXboxServices
+DisableMiscWindowsServices      # EnableMiscWindowsServices
 
 ### UI Tweaks ###
 DisableActionCenter             # EnableActionCenter
@@ -137,6 +144,7 @@ ShowSmallTaskbarIcons           # ShowLargeTaskbarIcons
 SetTaskbarCombineWhenFull       # SetTaskbarCombineNever        # SetTaskbarCombineAlways
 HideTaskbarPeopleIcon           # ShowTaskbarPeopleIcon
 ShowTrayIcons                   # HideTrayIcons
+EnableAutoTrayIcons             # DisableAutoTrayIcons
 # ShowSecondsInTaskbar          # HideSecondsFromTaskbar
 DisableSearchAppInStore         # EnableSearchAppInStore
 DisableNewAppPrompt             # EnableNewAppPrompt
@@ -211,8 +219,8 @@ DisableThumbnailCache           # EnableThumbnailCache
 DisableThumbsDBOnNetwork        # EnableThumbsDBOnNetwork
 
 ### Application Tweaks ###
-# DisableOneDrive                 # EnableOneDrive
-# UninstallOneDrive               # InstallOneDrive
+DisableOneDrive                 # EnableOneDrive
+# UninstallOneDrive               # InstallOneDrive              # WINDOWS WILL NOT SYSPREP WITHOUT IT!
 # UninstallMsftBloat              # InstallMsftBloat
 UninstallThirdPartyBloat        # InstallThirdPartyBloat
 # UninstallWindowsStore         # InstallWindowsStore
