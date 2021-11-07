@@ -238,14 +238,28 @@ Function EnableMiscWindowsServices {
 
 # Disable auto tray icons
 Function DisableAutoTrayIcons {
-       Write-Output "Disabling auto tray icons..."
-       Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
+    Write-Output "Disabling auto tray icons..."
+    if (Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer") {
+        $properties = Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
+        if ( $properties ) {
+            if (Get-Member -InputObject $properties -Name "EnableAutoTray") {
+                Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
+            }
+        }
+    }
 }
 
 # Enable auto tray icons. Hide tray icons as needed.
 Function EnableAutoTrayIcons {
-       Write-Output "Enabling auto tray icons..."
-       Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray"
+    Write-Output "Enabling auto tray icons..."
+    if (Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer") {
+        $properties = Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
+        if ( $properties ) {
+            if (Get-Member -InputObject $properties -Name "EnableAutoTray") {
+                Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray"
+            }
+        }
+    }
 }
 
 ##########
