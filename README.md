@@ -1,15 +1,3 @@
-## The project is archived
-
-This project has been archived because I no longer use Windows. I grew tired with the system being unable to keep itself configured in the desired state, group policies randomly stopping working for hundreds of managed workstations at once, advertisements, unwanted tips and content popping up on various places throughout the user interface, and incompetent support even for enterprise products. Ultimately I have migrated virtually all my servers, workstations and laptops to linux. Even though there are areas where the open source products are still lacking, the transparency, configurability and reliability greatly outweighs the drawbacks for me.
-
-I also lost faith in humanity throughout the years I was actively maintaining the project. The influx of pings, bumps, repeating questions already answered in FAQ, and various other unreasonable demands without any givebacks was just astounding. Please do not contact me regarding this project as I have no desire to invest any more time into it. As per MIT license, you're still free to use, modify, and distribute the code further, as long as you keep the license and copyright notice.
-
-&nbsp;
-
----
-
-&nbsp;
-
 ## Contents
  - [Description](#description)
  - [Usage](#usage)
@@ -28,7 +16,7 @@ This is a PowerShell script for automation of routine tasks done after fresh ins
 &nbsp;
 
 ## Usage
-If you just want to run the script with the default preset, download and unpack the [latest release](https://github.com/Disassembler0/Win10-Initial-Setup-Script/releases) and then simply double-click on the *Default.cmd* file and confirm *User Account Control* prompt. Make sure your account is a member of *Administrators* group as the script attempts to run with elevated privileges.
+If you just want to run the script with the default preset, download and unpack the [latest release](https://github.com/Jawabiscuit/Win10-Initial-Setup-Script/releases) and then simply double-click on the *Default.cmd* file and confirm *User Account Control* prompt. Make sure your account is a member of *Administrators* group as the script attempts to run with elevated privileges.
 
 The script supports command line options and parameters which can help you customize the tweak selection or even add your own custom tweaks, however these features require some basic knowledge of command line usage and PowerShell scripting. Refer to [Advanced usage](#advanced-usage) section for more details.
 
@@ -79,25 +67,13 @@ The script supports command line options and parameters which can help you custo
 **A:** As long as I use Windows 10.
 
 **Q:** I really like the script. Can I send a donation?  
-**A:** Feel free to send donations via [PayPal](https://www.paypal.me/Disassembler). Any amount is appreciated, but keep in mind that donations are completely voluntary and I'm not obliged to make any script adjustments in your favor regardless of the donated amount. You can also drop me a mail to discuss an alternative way.
+**A:** Donation is not available at this time.
 
 &nbsp;
 
 ## Windows builds overview
 
-| Version |        Code name        |     Marketing name     | Build |
-| :-----: | ----------------------- | ---------------------- | :---: |
-|  1507   | Threshold 1 (TH1 / RTM) | N/A                    | 10240 |
-|  1511   | Threshold 2 (TH2)       | November Update        | 10586 |
-|  1607   | Redstone 1 (RS1)        | Anniversary Update     | 14393 |
-|  1703   | Redstone 2 (RS2)        | Creators Update        | 15063 |
-|  1709   | Redstone 3 (RS3)        | Fall Creators Update   | 16299 |
-|  1803   | Redstone 4 (RS4)        | April 2018 Update      | 17134 |
-|  1809   | Redstone 5 (RS5)        | October 2018 Update    | 17763 |
-|  1903   | 19H1                    | May 2019 Update        | 18362 |
-|  1909   | 19H2                    | November 2019 Update   | 18363 |
-|  2004   | 20H1                    | May 2020 Update        | 19041 |
-|  20H2   | 20H2                    | October 2020 Update    | 19042 |
+Checkout [Wikipedia](https://en.wikipedia.org/wiki/Windows_10_version_history#Channels) for an up-to-date version table.
 
 &nbsp;
 
@@ -198,7 +174,7 @@ If you wish to make more elaborate modifications of the basic script and incorpo
 3. Add the original repository as a remote (*upstream*).
 
     ```
-    git remote add upstream https://github.com/Disassembler0/Win10-Initial-Setup-Script
+    git remote add upstream https://github.com/Jawabiscuit/Win10-Initial-Setup-Script
     ```
 
 4. Commit your modifications as you see fit.
