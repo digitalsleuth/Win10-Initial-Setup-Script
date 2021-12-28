@@ -299,6 +299,7 @@ Function ShowSavedPicturesInExplorer {
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{E25B5812-BE88-4bd9-94B0-29233477B6C3}\PropertyBag" -Name "ThisPCPolicy" -Type String -Value "Show"
 }
 
+# NOTE: Setting desktop icon size this way no longer persists as of 2021, not sure which build. Using ctrl + scroll is an easy enough workaround.
 # Small Desktop Icons
 Function SmallDesktopIcons {
 	Write-Output "Setting small desktop icons..."
